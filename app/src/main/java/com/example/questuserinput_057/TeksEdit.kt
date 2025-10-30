@@ -3,6 +3,7 @@ package com.example.questuserinput_057
 import androidx.compose.runtime.Composable
 import android.R
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.RadioButton
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
@@ -31,15 +32,7 @@ fun FormDataDiri(modifier: Modifier
                 label = {Text(text = "Nama Lengkap")},
                 onValueChange = {textNama = it}
             )
-            Row {
-                gender.forEach { item ->
-                    
 
-                }
-            }
-
-
-        }
 
 
 
