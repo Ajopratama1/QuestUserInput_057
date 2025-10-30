@@ -7,12 +7,10 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.QuestUserInput_057.FormDataDiri
 import com.example.questuserinput_057.ui.theme.QuestUserInput_057Theme
+// Import ini akan bekerja setelah Anda membuat file FormDataDiri.kt
+import com.example.questuserinput_057.FormDataDiri
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,6 +19,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             QuestUserInput_057Theme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                    // Sekarang pemanggilan ini akan menjadi valid
                     FormDataDiri(
                         modifier = Modifier
                             .padding(innerPadding)
@@ -31,4 +30,3 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
-

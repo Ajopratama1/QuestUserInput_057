@@ -1,5 +1,4 @@
-package com.example.questUserInput_057
-
+package com.example.questuserinput_057 // Pastikan package-nya sama
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -114,4 +113,3 @@ fun FormDataDiri(modifier: Modifier) {
         }
     }
 }
-
