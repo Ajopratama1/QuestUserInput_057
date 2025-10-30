@@ -1,0 +1,80 @@
+Index: app/src/main/java/com/example/questuserinput_057/TeksEdit.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.questuserinput_057\r\n\r\nimport androidx.compose.runtime.Composable\r\nimport android.R\r\nimport androidx.compose.foundation.layout.padding\r\nimport androidx.compose.material3.RadioButton\r\nimport androidx.compose.runtime.mutableStateOf\r\nimport androidx.compose.runtime.remember\r\nimport androidx.compose.ui.Modifier\r\n\r\n@composable\r\nfun FormDataDiri(modifier: Modifier\r\n){\r\n    var textNama by remember {mutableStateOf(value=\"\")}\r\n    var textAlamat by remember {mutableStateOf(value=\"\")}\r\n    var textJK by remember {mutableStateOf(value=\"\")}\r\n\r\n    var nama by remember {mutableStateOf(value=\"\")}\r\n    var alamat by remember {mutableStateOf(value=\"\")}\r\n    var jenis by remember {mutableStateOf(value=\"\")}\r\n\r\n    val gender:List<R.string> = listOf(\"Laki-laki\",\"Perempuan\")\r\n\r\n    comlumn(modifier = modifier.padding(top = 50.dp),\r\n        verticalArrangement = Arrangement.Top,\r\n        horizontalAlignment = Alignment.CenterHorizontally {\r\n            OutlinedTextField(\r\n                value = textNama,\r\n                singleLine = true,\r\n                shape = MaterialTheme.shapes.large,\r\n                modifier = Modifier.width(250.dp),\r\n                label = {Text(text = \"Nama Lengkap\")},\r\n                onValueChange = {textNama = it}\r\n            )\r\n            Row {\r\n                gender.forEach { item ->\r\n                    Row(modifier = Modifier.selectable(\r\n                        selected = textJK == item,\r\n                        onClick = {textJK = item}\r\n                    ), verticalAlignment = Alignment.CenterVertically) {\r\n                        RadioButton(\r\n                            selected = textJK == item,\r\n                            onClick = {textJK = item}\r\n                        )\r\n                        Text(text = item)\r\n                    }\r\n\r\n                }\r\n            }\r\n\r\n\r\n        }\r\n\r\n\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/questuserinput_057/TeksEdit.kt b/app/src/main/java/com/example/questuserinput_057/TeksEdit.kt
+--- a/app/src/main/java/com/example/questuserinput_057/TeksEdit.kt	(revision 099fe0f71f4ae15ce022937edbca21b8fec09d9f)
++++ b/app/src/main/java/com/example/questuserinput_057/TeksEdit.kt	(date 1761801306386)
+@@ -1,12 +1,31 @@
+ package com.example.questuserinput_057
+ 
+-import androidx.compose.runtime.Composable
+-import android.R
++import androidx.compose.foundation.layout.Arrangement
++import androidx.compose.foundation.layout.Column
++import androidx.compose.foundation.layout.Row
++import androidx.compose.foundation.layout.fillMaxWidth
+ import androidx.compose.foundation.layout.padding
++import androidx.compose.foundation.selection.selectable
++import androidx.compose.material3.MaterialTheme
++import androidx.compose.material3.OutlinedTextField
+ import androidx.compose.material3.RadioButton
++import androidx.compose.material3.Text
++import androidx.compose.runtime.Composable
++import androidx.compose.runtime.getValue
+ import androidx.compose.runtime.mutableStateOf
+ import androidx.compose.runtime.remember
++import androidx.compose.runtime.setValue
++import androidx.compose.ui.Alignment
+ import androidx.compose.ui.Modifier
++import androidx.compose.ui.tooling.preview.Preview
++import androidx.compose.ui.unit.dp
++
++fun comlumn(
++    modifier: Modifier,
++    verticalArrangement: Arrangement.Vertical,
++    horizontalAlignment: Any
++) {
++}
+ 
+ @composable
+ fun FormDataDiri(modifier: Modifier
+@@ -46,8 +65,35 @@
+                     }
+ 
+                 }
++                OutlinedTextField(
++                    value = textAlamat,
++                    singleLine = true,
++                    modifier = Modifier.width(250.dp),
++                    label = {Text(text = "Alamat Lengkap")},
++                    onValueChange = {textAlamat = it}
++                )
++
+             }
++            Divider(
++                modifier = Modifier.padding(bottom = dimensionResource(R.dimen.padding_medium), top = dimensionResource(R.dimen.padding_medium)),
++            
++            thickness = dimensionResource(R.dimen.divider_tipis),
++            color = Color.DarkGray
++            )
++            Button(
++                modifier = Modifier.fillMaxWidth(1f),
++                enabled = textAlamat.isNotEmpaty(),
++                onClick = {
++                    nama=textNama
++                    alamat=textAlamat
++                    jenis=textJK
++                }
+ 
++
++
++            ){
++                Text(text = stringResource(R.string.submit))
++            }
+ 
+         }
+ 
